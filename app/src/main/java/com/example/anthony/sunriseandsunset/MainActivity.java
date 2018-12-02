@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "info obtained", Toast.LENGTH_LONG);
                     toast.show();
                 } catch (Exception e) {
-                    textBox.setText("you fucked up");
+                    textBox.setText("you messed up");
                 }
                 Log.i("My App", "Sunrise and Sunset info obtained");
             }
