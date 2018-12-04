@@ -16,7 +16,7 @@ public class API_Call {
     }
 
     public static String call_me() throws Exception {
-        String url = "https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=2017-01-01";
+        String url = "https://api.sunrise-sunset.org/json?lat=70&lng=90&date=2017-01-01";
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         // optional default is GET
@@ -37,19 +37,20 @@ public class API_Call {
         in.close();
         //print in String
         System.out.println(myResponse);
+        myResponse = myResponse.substring(11);
+        myResponse = myResponse.substring(0, myResponse.length() - 15);
+        System.out.println(myResponse);
         Map jsonJavaRootObject1 = new Gson().fromJson(myResponse, Map.class);
-        String result = jsonJavaRootObject1.get("results").toString();
-        System.out.println(result);
-        String sunrise = "Sun Rise Time " + result.substring(9, 19);
-        String sunset = "Sun Set Time " + result.substring(28, 38);
-        String solarnoon = "Solar Noon Time " + result.substring(51, 62);
-        String daylength = "Day Length " + result.substring(75, 83) + " (Hour,min)";
-        String civiltwilightbegin = "Civil Twilight Begins At " + result.substring(106, 116);
-        String civiltwilightend = "Civil Twilight Ends At " + result.substring(137, 147);
-        String naturaltwilightbegins = "Natural Twilight Begins At " + result.substring(173, 183);
-        String naturaltwilightends = "Natural Twilight Ends At " + result.substring(207, 217);
-        String astronomicaltwilightbegin = "Astronomical Twilight Begins At " + result.substring(247, 257);
-        String astronomicaltwilightend = "Astronomical Twilight Ends At " + result.substring(285, 295);
+        String sunrise = "Sun Rise At " + jsonJavaRootObject1.get("sunrise").toString();
+        String sunset = "Sun Set At " + jsonJavaRootObject1.get("sunset").toString();
+        String solarnoon = "Solar Noon is At " + jsonJavaRootObject1.get("solar_noon").toString();
+        String daylength = "Daylength is " + jsonJavaRootObject1.get("day_length").toString() + " (Hour, Min)";
+        String civiltwilightbegin = "Civil Twilight Begins At " + jsonJavaRootObject1.get("civil_twilight_begin").toString();
+        String civiltwilightend = "Civil Twilight Ends At " + jsonJavaRootObject1.get("civil_twilight_end").toString();
+        String nauticaltwilightbegin = "Nautical Twilight Begins At " + jsonJavaRootObject1.get("nautical_twilight_begin").toString();
+        String nauticaltwilightend = "Nautical Twilight Ends At " + jsonJavaRootObject1.get("nautical_twilight_end").toString();
+        String astronomicaltwilightbegin = "Astronomical Twilight Begins At " + jsonJavaRootObject1.get("astronomical_twilight_begin").toString();
+        String astronomicaltwilightend = "Astronomical Twilight Ends At " + jsonJavaRootObject1.get("astronomical_twilight_end").toString();
 
         /*
         System.out.println(sunrise);
@@ -70,8 +71,8 @@ public class API_Call {
                 + daylength + "\n"
                 + civiltwilightbegin + "\n"
                 + civiltwilightend + "\n"
-                + naturaltwilightbegins + "\n"
-                + naturaltwilightends + "\n"
+                + nauticaltwilightbegin + "\n"
+                + nauticaltwilightend + "\n"
                 + astronomicaltwilightbegin + "\n"
                 + astronomicaltwilightend;
     }
