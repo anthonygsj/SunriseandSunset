@@ -16,7 +16,7 @@ public class API_Call {
     }
 
     public static String call_me() throws Exception {
-        String url = "https://api.sunrise-sunset.org/json?lat=36.7201600&lng=-4.4203400&date=2017-01-01";
+        String url = "https://api.sunrise-sunset.org/json?lat=-36.7201600&lng=4.4203400&date=2017-01-01";
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         // optional default is GET
