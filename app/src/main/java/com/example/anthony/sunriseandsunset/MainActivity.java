@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    /** called when user clicks view times button
+    /* called when user clicks view times button
      * https://developer.android.com/training/basics/firstapp/starting-activity#CreateActivity*/
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
