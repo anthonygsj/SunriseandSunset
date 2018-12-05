@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/editDate"
-        android:layout_width="138dp"
+        android:layout_width="238dp"
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
@@ -18,7 +18,7 @@
         android:layout_marginBottom="328dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="YYYY-MM-DD"
+        android:hint='YYYY-MM-DD or try "today"'
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

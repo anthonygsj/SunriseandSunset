@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... urls) {
-            String result = "Could not obtain data";
+            String result = "Invalid input, please try again";
             EditText latitude = findViewById(R.id.editLatitude);
             EditText longitude = findViewById(R.id.editLongitude);
             EditText date = findViewById(R.id.editDate);
