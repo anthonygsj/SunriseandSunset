@@ -9,20 +9,18 @@ import java.util.Map;
 public class API_Call {
     public static void main(String[] args) {
         try {
-            System.out.println(API_Call.call_me());
+            System.out.println(API_Call.call_me("36.7201600","-4.4203400","2017-01-01"));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static String call_me() throws Exception {
-        String url = "https://api.sunrise-sunset.org/json?lat=70&lng=90&date=2017-01-01";
+    public static String call_me(String lat, String lng, String date) throws Exception {
+        String url = "https://api.sunrise-sunset.org/json?lat=" + lat + "&lng=" + lng + "&date=" + date;
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-        // optional default is GET
-        con.setRequestMethod("GET");
-        //add request header
-        con.setRequestProperty("User-Agent", "Mozilla/5.0");
+
+
         int responseCode = con.getResponseCode();
         System.out.println("Sending 'GET' request to URL : " + url);
         System.out.println("Response Code : " + responseCode);
@@ -36,10 +34,10 @@ public class API_Call {
         String myResponse = response.toString();
         in.close();
         //print in String
-        System.out.println(myResponse);
+        //System.out.println(myResponse);
         myResponse = myResponse.substring(11);
         myResponse = myResponse.substring(0, myResponse.length() - 15);
-        System.out.println(myResponse);
+        //System.out.println(myResponse);
         Map jsonJavaRootObject1 = new Gson().fromJson(myResponse, Map.class);
         String sunrise = "Sun Rise At " + jsonJavaRootObject1.get("sunrise").toString();
         String sunset = "Sun Set At " + jsonJavaRootObject1.get("sunset").toString();

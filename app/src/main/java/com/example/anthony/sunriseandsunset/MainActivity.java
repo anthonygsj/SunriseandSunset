@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
+
 import java.net.*;
 import java.io.*;
 
@@ -35,8 +38,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... urls) {
             String result = "Could not obtain data";
+            EditText latitude = findViewById(R.id.editLatitude);
+            EditText longitude = findViewById(R.id.editLongitude);
+            EditText date = findViewById(R.id.editDate);
+            String lat = latitude.getText().toString();
+            String lng = longitude.getText().toString();
+            String d = date.getText().toString();
             try {
-                result = API_Call.call_me();
+                result = API_Call.call_me(lat,lng,d);
             } catch (Exception e) {
                 e.printStackTrace();
             }
