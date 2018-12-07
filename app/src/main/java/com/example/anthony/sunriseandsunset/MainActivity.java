@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
             String d = date.getText().toString();
             try {
                 result = API_Call.call_me(lat,lng,d);
+                if (result == null) {
+                    result = "Latitude and Longitude cannot exceed +-90.";
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }

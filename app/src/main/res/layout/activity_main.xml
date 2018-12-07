@@ -97,7 +97,6 @@
         android:gravity="center"
         android:hint="Enter Latitude"
         android:inputType="textPersonName"
-        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
