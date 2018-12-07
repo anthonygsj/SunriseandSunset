@@ -21,7 +21,7 @@ public class API_Call {
         //check for valid longitude and latitude input
         int latInt = Integer.parseInt(lat);
         int lngInt = Integer.parseInt(lng);
-        if (latInt > 90 || latInt < -90 || lngInt > 90 || lngInt < -90) {
+        if (latInt > 90 || latInt < -90 || lngInt > 180 || lngInt < -180) {
             return null;
         }
 

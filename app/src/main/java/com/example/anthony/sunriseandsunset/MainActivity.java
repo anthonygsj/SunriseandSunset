@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 result = API_Call.call_me(lat,lng,d);
                 if (result == null) {
-                    result = "Latitude and Longitude cannot exceed +-90.";
+                    result = "Latitude cannot exceed +-90, Longitude cannot exceed +=180.";
                 }
             } catch (Exception e) {
                 e.printStackTrace();
